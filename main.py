@@ -58,5 +58,16 @@ async def handle_msg(request: Request):
     form = await request.form()
     msg = form.get("Body", "")
     return {"response": ngoma_rich(msg)}
+from fastapi import Request
+
+@app.post("/ngoma")
+async def handle_msg(request: Request):
+    try:
+        form = await request.form()
+        msg = form.get("Body", "")
+        return {"response": ngoma_rich(msg)}
+    except Exception as e:
+        print("💥 ERROR:", e)
+        return {"error": str(e)}
 
    
