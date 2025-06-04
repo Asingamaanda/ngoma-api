@@ -17,3 +17,7 @@ def handle_msg(data: Input):
         return {"response": "Tshivenda ya 'love' ndi 'U funa'."}
 
     return {"response": "Ndi kha ḓi guda zwanenzwo! Vhuyani hafhu."}
+   @app.get("/")
+def read_root():
+    return {"message": "Welcome to NGOMA API. Use POST /ngoma with { message: '...' }"}
+ 
